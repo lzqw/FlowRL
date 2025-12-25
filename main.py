@@ -195,7 +195,7 @@ def train_loop(config, msg = "default"):
 if __name__ == "__main__":
     arg = ARGConfig()
     arg.add_arg("domain","Ant-v5","dm domain")
-    arg.add_arg("task", "Ant-v5", "Environment name")
+    arg.add_arg("task", "Humanoid-v5", "Environment name")
     arg.add_arg("device", 0, "Computing device")
     arg.add_arg("algo", "flowac", "choose algo")
     arg.add_arg("tag", "default", "Experiment tag")
@@ -204,7 +204,8 @@ if __name__ == "__main__":
     arg.add_arg("lamda", 0.1, "lagrange_multiplier")
     arg.add_arg("num_steps", 1000001, "total training steps")
     arg.parser()
-
+    if arg.task=="Humanoid-v5":
+        arg.num_steps=2000001
     config = default_config
     
     config.update(arg)
