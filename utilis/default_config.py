@@ -6,7 +6,7 @@ default_config = Config({
     "tag": "default",
     "start_steps": 5000,
     "cuda": True,
-    "num_steps": 2000001,
+    "num_steps": 1000001,
     "save": True,
     
     "env_name": "Walker2d-v4",  
@@ -18,14 +18,14 @@ default_config = Config({
 
     "algo": "FlowAC",
     "policy": "Flow", 
-    "steps": 1,
+    "steps": 10,
     "gamma": 0.99, 
     "tau": 0.95,
     "lr": 0.0003, #0.0003
     "batch_size": 256, 
     "updates_per_step": 1,
     "target_update_interval": 2, # for delayed policy update and target network update
-    "hidden_size": 512,
+    "hidden_size": 256,
 
     "quantile": 0.9,  # default ,but needed to be tuned for unseen tasks ,in unseen tasks for humanoid_bench ,we recommened to set quantile= 0.8
     "epochs":50 ,
